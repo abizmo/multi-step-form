@@ -108,16 +108,21 @@ function App() {
 
   <!-- Step 5 end -->
   */}
-      <footer className='attribution'>
+      <footer className='text-xs text-center'>
         Challenge by{' '}
         <a
           href='https://www.frontendmentor.io?ref=challenge'
           target='_blank'
           rel='noreferrer'
+          className='text-blue-900'
         >
           Frontend Mentor
         </a>
-        . Coded by <a href='https://www.abizmo.dev'>Abián Izquierdo</a>.
+        . Coded by{' '}
+        <a href='https://www.abizmo.dev' className='text-blue-900'>
+          Abián Izquierdo
+        </a>
+        .
       </footer>
     </>
   );
