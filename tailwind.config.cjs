@@ -1,5 +1,8 @@
 // @type {import('tailwindcss').Config}
 
+// eslint-disable-next-line import/no-extraneous-dependencies
+const { fontFamily } = require('tailwindcss/defaultTheme');
+
 module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
@@ -31,7 +34,11 @@ module.exports = {
       normal: '0em',
       wide: '0.07em',
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ['Ubuntu', ...fontFamily.sans],
+      },
+    },
   },
   plugins: [],
 };
