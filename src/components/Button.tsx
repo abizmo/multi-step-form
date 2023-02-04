@@ -6,9 +6,11 @@ import React, { ComponentProps } from 'react';
 const buttonStyles = cva('text-sm lg:text-base font-medium', {
   variants: {
     variant: {
-      primary: 'bg-marine-blue text-alabaster h-10 w-24 rounded',
-      accent: 'bg-purplish-blue text-alabaster h-10 w-24 rounded',
-      text: 'text-cool-gray h-10',
+      primary:
+        'bg-marine-blue text-alabaster h-10 w-24 rounded hover:brightness-150',
+      accent:
+        'bg-purplish-blue text-alabaster h-10 w-24 rounded hover:brightness-125',
+      text: 'text-cool-gray h-10 hover:text-marine-blue',
     },
   },
   defaultVariants: {
