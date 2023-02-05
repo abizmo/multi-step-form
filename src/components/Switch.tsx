@@ -8,7 +8,13 @@ interface Props {
   onChange: () => void;
 }
 
-function Switch({ labelOff, labelOn, switchId, isOn, onChange }: Props) {
+function Switch({
+  labelOff,
+  labelOn,
+  switchId,
+  isOn,
+  onChange,
+}: Props): JSX.Element {
   return (
     <div className='bg-alabaster flex gap-6 justify-center py-4 rounded-lg text-sm font-medium text-cool-gray'>
       <span className={isOn ? '' : 'text-marine-blue'}>{labelOff}</span>
