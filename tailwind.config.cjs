@@ -38,6 +38,9 @@ module.exports = {
       fontFamily: {
         sans: ['Ubuntu', ...fontFamily.sans],
       },
+      outlineColor: {
+        transparent: 'transparent',
+      },
     },
   },
   plugins: [],
