@@ -1,24 +1,13 @@
-import React, { useState } from 'react';
+/* eslint-disable react/jsx-props-no-spreading */
+import React, { ComponentProps, useState } from 'react';
 
-interface Props {
-  id: string;
-  label: string;
+type InputProps = ComponentProps<'input'>;
+
+export interface Props extends InputProps {
   errorMessage: string;
-  type: string;
-  placeholder: string;
-  value: string;
-  onChange: (evt: React.FormEvent<HTMLInputElement>) => void;
+  label: string;
 }
-
-function FormGroup({
-  id,
-  label,
-  errorMessage,
-  type,
-  placeholder,
-  value,
-  onChange,
-}: Props) {
+function FormGroup({ id, label, errorMessage, ...props }: Props) {
   const [isInvalid, setIsInvalid] = useState(false);
   const handleBlur = (evt: React.FormEvent<HTMLInputElement>) => {
     if (evt.currentTarget.value === '') setIsInvalid(true);
@@ -39,10 +28,7 @@ function FormGroup({
         className={`h-10 px-4 text-m  text-marine-blue font-medium border-2 border-light-gray rounded outline-transparent focus:border-purplish-blue placeholder:text-cool-gray ${
           isInvalid ? 'border-strawberry-red' : ''
         }`}
-        type={type}
-        placeholder={placeholder}
-        onChange={onChange}
-        value={value}
+        {...props}
         onBlur={handleBlur}
       />
     </div>
