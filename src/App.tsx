@@ -1,14 +1,15 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import Attribution from './components/Attribution';
-import Paragraph from './components/Paragraph';
 import Steps from './components/Steps';
-import Title from './components/Title';
 import Body from './layout/Body';
 import Container from './layout/Container';
 import Header from './layout/Header';
 
 import './App.css';
+import PersonalInfo from './pages/PersonalInfo';
+import SelectPlan from './pages/SelectPlan';
 
 const steps = [
   {
@@ -37,10 +38,12 @@ function App() {
           <Steps steps={steps} currentStep={1} />
         </Header>
         <Body>
-          <Title>Personal info</Title>
-          <Paragraph>
-            Please provide your name, email address, and phone number.
-          </Paragraph>
+          <Router>
+            <Routes>
+              <Route path='/' element={<PersonalInfo />} />
+              <Route path='/select-plan' element={<SelectPlan />} />
+            </Routes>
+          </Router>
         </Body>
       </Container>
       <Attribution name='Abián Izquierdo' url='https://www.abizmo.dev' />
