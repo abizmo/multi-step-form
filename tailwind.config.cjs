@@ -41,6 +41,10 @@ module.exports = {
       lg: '940px',
     },
     extend: {
+      backgroundImage: {
+        mobile: 'url("/images/bg-sidebar-mobile.svg")',
+        desktop: 'url("/images/bg-sidebar-desktop.svg")',
+      },
       fontFamily: {
         sans: ['Ubuntu', ...fontFamily.sans],
       },
