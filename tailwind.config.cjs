@@ -54,6 +54,9 @@ module.exports = {
       outlineColor: {
         transparent: 'transparent',
       },
+      spacing: {
+        21: '5.25rem',
+      },
     },
   },
   plugins: [],
