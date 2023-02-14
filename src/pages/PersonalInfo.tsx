@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import Button from '../components/Button';
 import FormGroup from '../components/FormGroup';
 
 import Paragraph from '../components/Paragraph';
@@ -52,6 +54,11 @@ function PersonalInfo() {
           value={phone}
           onChange={(evt) => handleChange('phone', evt.currentTarget.value)}
         />
+      </div>
+      <div className='absolute inset-x-0 bottom-0 bg-white lg:inset-x-16 py-6 px-4 flex flex-row-reverse -z-10 lg:z-0'>
+        <Link to='/select-plan'>
+          <Button>Next</Button>
+        </Link>
       </div>
     </>
   );
