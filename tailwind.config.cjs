@@ -18,6 +18,9 @@ module.exports = {
       alabaster: 'hsl(231, 100%, 99%)',
       white: 'hsl(0, 0%, 100%)',
     },
+    container: {
+      center: true,
+    },
     fontSize: {
       '2xs': ['.6875rem', '1'],
       xs: ['.75rem', '1'],
@@ -34,9 +37,15 @@ module.exports = {
       normal: '0em',
       wide: '0.07em',
     },
+    screens: {
+      lg: '940px',
+    },
     extend: {
       fontFamily: {
         sans: ['Ubuntu', ...fontFamily.sans],
+      },
+      gridTemplateRows: {
+        abi: '1fr min-content',
       },
       outlineColor: {
         transparent: 'transparent',
