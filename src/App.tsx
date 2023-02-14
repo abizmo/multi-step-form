@@ -1,130 +1,50 @@
 import React from 'react';
+
+import Attribution from './components/Attribution';
+import Paragraph from './components/Paragraph';
+import Steps from './components/Steps';
+import Title from './components/Title';
+import Body from './layout/Body';
+import Container from './layout/Container';
+import Header from './layout/Header';
+
 import './App.css';
+
+const steps = [
+  {
+    id: 1,
+    name: 'Your info',
+  },
+  {
+    id: 2,
+    name: 'Select plan',
+  },
+  {
+    id: 3,
+    name: 'Add-ons',
+  },
+  {
+    id: 4,
+    name: 'Summary',
+  },
+];
 
 function App() {
   return (
-    <>
-      <h1>Frontend Mentor | Multi-step form</h1>
-      {/*
-  <!-- Sidebar start -->
-
-  Step 1
-  Your info
-
-  Step 2
-  Select plan
-
-  Step 3
-  Add-ons
-
-  Step 4
-  Summary
-
-  <!-- Sidebar end -->
-
-  <!-- Step 1 start -->
-
-  Personal info
-  Please provide your name, email address, and phone number.
-
-  Name
-  e.g. Stephen King
-
-  Email Address
-  e.g. stephenking@lorem.com
-
-  Phone Number
-  e.g. +1 234 567 890
-
-  Next Step
-
-  <!-- Step 1 end -->
-
-  <!-- Step 2 start -->
-
-  Select your plan
-  You have the option of monthly or yearly billing.
-
-  Arcade
-  $9/mo
-
-  Advanced
-  $12/mo
-
-  Pro
-  $15/mo
-
-  Monthly
-  Yearly
-
-  Go Back
-  Next Step
-
-  <!-- Step 2 end -->
-
-  <!-- Step 3 start -->
-
-  Pick add-ons
-  Add-ons help enhance your gaming experience.
-
-  Online service
-  Access to multiplayer games
-  +$1/mo
-
-  Larger storage
-  Extra 1TB of cloud save
-  +$2/mo
-
-  Customizable Profile
-  Custom theme on your profile
-  +$2/mo
-
-  Go Back
-  Next Step
-
-  <!-- Step 3 end -->
-
-  <!-- Step 4 start -->
-
-  Finishing up
-  Double-check everything looks OK before confirming.
-
-  <!-- Dynamically add subscription and add-on selections here -->
-
-  Total (per month/year)
-
-  Go Back
-  Confirm
-
-  <!-- Step 4 end -->
-
-  <!-- Step 5 start -->
-
-  Thank you!
-
-  Thanks for confirming your subscription! We hope you have fun 
-  using our platform. If you ever need support, please feel free 
-  to email us at support@loremgaming.com.
-
-  <!-- Step 5 end -->
-  */}
-      <footer className='text-xs text-center'>
-        Challenge by{' '}
-        <a
-          href='https://www.frontendmentor.io?ref=challenge'
-          target='_blank'
-          rel='noreferrer'
-          className='text-blue-900'
-        >
-          Frontend Mentor
-        </a>
-        . Coded by{' '}
-        <a href='https://www.abizmo.dev' className='text-blue-900'>
-          Abián Izquierdo
-        </a>
-        .
-      </footer>
-    </>
+    <div className='grid gap-4 h-screen grid-rows-abi'>
+      <Container>
+        <Header>
+          <Steps steps={steps} currentStep={1} />
+        </Header>
+        <Body>
+          <Title>Personal info</Title>
+          <Paragraph>
+            Please provide your name, email address, and phone number.
+          </Paragraph>
+        </Body>
+      </Container>
+      <Attribution name='Abián Izquierdo' url='https://www.abizmo.dev' />
+    </div>
   );
 }
 
