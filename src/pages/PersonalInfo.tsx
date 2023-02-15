@@ -55,7 +55,7 @@ function PersonalInfo() {
           onChange={(evt) => handleChange('phone', evt.currentTarget.value)}
         />
       </div>
-      <div className='absolute inset-x-0 bottom-0 bg-white lg:inset-x-16 py-6 px-4 flex flex-row-reverse -z-10 lg:z-0'>
+      <div className='absolute inset-x-0 bottom-0 bg-white lg:inset-x-16 py-6 px-4 flex flex-row-reverse'>
         <Link to='/select-plan'>
           <Button>Next</Button>
         </Link>

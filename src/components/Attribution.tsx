@@ -7,7 +7,7 @@ interface Props {
 
 function Attribution({ name, url }: Props) {
   return (
-    <footer className='text-xs text-center'>
+    <footer className='text-xs text-center z-10'>
       Challenge by{' '}
       <a
         href='https://www.frontendmentor.io?ref=challenge'
