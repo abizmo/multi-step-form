@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Button from '../components/Button';
 import FormGroup from '../components/FormGroup';
 
 import Paragraph from '../components/Paragraph';
 import Title from '../components/Title';
+import Footer from '../layout/Footer';
 
 function PersonalInfo() {
   const [personalInfo, setPersonalInfo] = useState({
@@ -12,7 +11,6 @@ function PersonalInfo() {
     email: '',
     phone: '',
   });
-  const navigate = useNavigate();
 
   const { name, email, phone } = personalInfo;
 
@@ -56,9 +54,7 @@ function PersonalInfo() {
           onChange={(evt) => handleChange('phone', evt.currentTarget.value)}
         />
       </div>
-      <div className='absolute inset-x-0 bottom-0 bg-white lg:inset-x-16 py-6 px-4 flex flex-row-reverse'>
-        <Button onClick={() => navigate('/select-plan')}>Next</Button>
-      </div>
+      <Footer next='/select-plan' />
     </>
   );
 }
