@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Button from '../components/Button';
 import FormGroup from '../components/FormGroup';
 
@@ -12,6 +12,7 @@ function PersonalInfo() {
     email: '',
     phone: '',
   });
+  const navigate = useNavigate();
 
   const { name, email, phone } = personalInfo;
 
@@ -56,9 +57,7 @@ function PersonalInfo() {
         />
       </div>
       <div className='absolute inset-x-0 bottom-0 bg-white lg:inset-x-16 py-6 px-4 flex flex-row-reverse'>
-        <Link to='/select-plan'>
-          <Button>Next</Button>
-        </Link>
+        <Button onClick={() => navigate('/select-plan')}>Next</Button>
       </div>
     </>
   );
