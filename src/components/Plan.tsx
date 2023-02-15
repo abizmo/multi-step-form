@@ -9,7 +9,7 @@ interface Props extends Omit<InputProps, 'type' | 'className'> {
   title: string;
   price?: number;
   billing?: Billing;
-  discount?: string;
+  discount?: string | undefined;
 }
 
 const BILLING = {
