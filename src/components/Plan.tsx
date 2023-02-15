@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { ComponentProps } from 'react';
 
-type Billing = 'monthly' | 'yearly';
+export type Billing = 'monthly' | 'yearly';
 type InputProps = ComponentProps<'input'>;
 
 interface Props extends Omit<InputProps, 'type' | 'className'> {
