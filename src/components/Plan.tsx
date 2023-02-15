@@ -30,7 +30,7 @@ function Plan({
   return (
     <label
       htmlFor={id}
-      className={`flex gap-4 p-4 border border-light-gray rounded ${
+      className={`flex lg:flex-col gap-4 lg:gap-11 p-4 lg:py-5 border border-light-gray rounded ${
         checked ? 'bg-magnolia border-purplish-blue' : ''
       }`}
     >
