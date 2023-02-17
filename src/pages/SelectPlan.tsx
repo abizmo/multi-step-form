@@ -23,7 +23,6 @@ function SelectPlan() {
             You have the option of monthly or yearly billing.
           </Paragraph>
         </div>
-        <Footer next='/add-ons' back />
       </div>
       <ul className='flex flex-col gap-3 lg:flex-row lg:gap-5'>
         {PLANS.map(({ id, title, price, srcIcon, discount }) => (
@@ -49,6 +48,7 @@ function SelectPlan() {
         isOn={billing === 'yearly'}
         onChange={handleSwitch}
       />
+      <Footer next='/add-ons' back />
     </div>
   );
 }
