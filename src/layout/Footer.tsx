@@ -15,6 +15,7 @@ function Footer({ next, back = false, confirm = false }: Props) {
   if (next) {
     buttons.push(
       <Button
+        key='next'
         variant={confirm ? 'accent' : 'primary'}
         onClick={() => navigate(next)}
       >
@@ -25,7 +26,7 @@ function Footer({ next, back = false, confirm = false }: Props) {
 
   if (back) {
     buttons.push(
-      <Button variant='text' onClick={() => navigate(-1)}>
+      <Button key='back' variant='text' onClick={() => navigate(-1)}>
         Go Back
       </Button>,
     );
