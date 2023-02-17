@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { ComponentProps } from 'react';
 
-type Billing = 'monthly' | 'yearly';
+export type Billing = 'monthly' | 'yearly';
 type InputProps = ComponentProps<'input'>;
 
 interface Props extends Omit<InputProps, 'type' | 'className'> {
@@ -9,7 +9,7 @@ interface Props extends Omit<InputProps, 'type' | 'className'> {
   title: string;
   price?: number;
   billing?: Billing;
-  discount?: string;
+  discount?: string | undefined;
 }
 
 const BILLING = {
@@ -30,7 +30,7 @@ function Plan({
   return (
     <label
       htmlFor={id}
-      className={`flex gap-4 p-4 border border-light-gray rounded ${
+      className={`flex lg:flex-col gap-4 lg:gap-11 p-4 lg:py-5 border border-light-gray rounded ${
         checked ? 'bg-magnolia border-purplish-blue' : ''
       }`}
     >
