@@ -1,11 +1,10 @@
-import React from 'react';
+/* eslint-disable react/jsx-props-no-spreading */
+import React, { ComponentProps } from 'react';
 
 type Billing = 'monthly' | 'yearly';
 
-interface Props {
-  id: string;
-  checked: boolean;
-  onChange: () => void;
+type InputProps = ComponentProps<'input'>;
+interface Props extends Omit<InputProps, 'type' | 'className'> {
   title: string;
   description: string;
   price?: number;
@@ -20,11 +19,11 @@ const BILLING = {
 function AddOn({
   id,
   checked,
-  onChange,
   title,
   description,
   price = 0,
   billing = 'monthly',
+  ...props
 }: Props) {
   return (
     <label
@@ -38,8 +37,8 @@ function AddOn({
           type='checkbox'
           id={id}
           className='sr-only peer'
-          onChange={onChange}
           checked={checked}
+          {...props}
         />
         <span className='block h-5 w-5 border border-light-gray rounded peer-checked:bg-purplish-blue peer-checked:border-purplish-blue peer-checked:bg-[url("/images/icon-checkmark.svg")] peer-checked:bg-no-repeat peer-checked:bg-center' />
       </div>
