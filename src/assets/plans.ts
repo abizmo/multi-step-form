@@ -8,7 +8,7 @@ type Discount = {
   [key in Billing]?: string;
 };
 
-type PlanType = {
+export type PlanType = {
   id: string;
   title: string;
   price: Price;
