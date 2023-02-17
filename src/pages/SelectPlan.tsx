@@ -15,7 +15,7 @@ function SelectPlan() {
     setBilling((prev) => (prev === 'monthly' ? 'yearly' : 'monthly'));
 
   return (
-    <div className='grid gap-5'>
+    <div className='grid gap-5 lg:gap-9'>
       <div>
         <div>
           <Title>Select your plan</Title>
