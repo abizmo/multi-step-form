@@ -4,7 +4,7 @@ type Price = {
   [key in Billing]: number;
 };
 
-type AddOnType = {
+export type AddOnType = {
   id: string;
   title: string;
   description: string;
