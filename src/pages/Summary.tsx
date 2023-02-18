@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { AddOnType } from '../assets/addons';
-import { PlanType } from '../assets/plans';
+import { type AddOnType } from '../assets/addons';
+import { type PlanType } from '../assets/plans';
 
 import Paragraph from '../components/Paragraph';
-import { Billing } from '../components/Plan';
+import { type Billing } from '../components/Plan';
 import Title from '../components/Title';
 import Footer from '../layout/Footer';
 
@@ -45,7 +45,6 @@ function Summary() {
     ],
   };
 
-  // TODO: reduce from cart
   const total = CART.addons.reduce(
     (prev, next) => prev + next.price,
     CART.plan.price,
@@ -92,7 +91,9 @@ function Summary() {
         </ul>
       </div>
       <div className='px-4 lg:px-6 flex justify-between items-center'>
-        <span className='text-sm text-cool-gray'>Total (per month)</span>
+        <span className='text-sm text-cool-gray'>
+          Total (per {CART.billing.slice(0, -2)})
+        </span>
         <span className='lg:text-lg font-medium text-purplish-blue'>
           +${total}/{BILLING[CART.billing]}
         </span>
