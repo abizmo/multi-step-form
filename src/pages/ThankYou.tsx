@@ -7,7 +7,7 @@ function ThankYou() {
   return (
     <div className='grid gap-6 lg:gap-8 justify-items-center text-center py-12 lg:py-28'>
       <img src='/images/icon-thank-you.svg' alt='Thank you' />
-      <div>
+      <div className='grid lg:gap-4'>
         <Title>Thank you!</Title>
         <Paragraph>
           Thanks for confirming your subscription! We hope you have fun using
