@@ -4,12 +4,14 @@ import AddOn from '../components/AddOn';
 
 import Paragraph from '../components/Paragraph';
 import Title from '../components/Title';
+import { usePlan } from '../context';
 import Footer from '../layout/Footer';
 
 function AddOns() {
   const [addOns, setAddOns] = useState<string[]>([]);
-  // TODO: come from App state
-  const billing = 'monthly';
+  const {
+    state: { billing },
+  } = usePlan();
 
   const isAddOnSelected = (addOn: string) => addOns.includes(addOn);
   const toggleAddOn = (addOn: string) =>
