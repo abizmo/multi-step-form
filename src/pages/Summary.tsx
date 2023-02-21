@@ -6,6 +6,7 @@ import { type PlanType } from '../assets/plans';
 import Paragraph from '../components/Paragraph';
 import { type Billing } from '../components/Plan';
 import Title from '../components/Title';
+import { usePlan } from '../context';
 import Footer from '../layout/Footer';
 
 const BILLING = {
@@ -24,6 +25,7 @@ interface CartType {
 }
 
 function Summary() {
+  const { state } = usePlan();
   const CART: CartType = {
     plan: {
       id: 'arcade',
@@ -62,8 +64,8 @@ function Summary() {
         <div className='flex justify-between items-center pb-4 lg:pb-6 border-b border-light-gray mb-4 lg:mb-6'>
           <div>
             <p className='lg:text-base font-medium text-marine-blue mb-1 lg:mb-2'>
-              {CART.plan.title}{' '}
-              <span className='capitalize'>({CART.billing})</span>
+              {state.title}{' '}
+              <span className='capitalize'>({state.billing})</span>
             </p>
             <Link
               className='text-cool-gray hover:text-purplish-blue underline'
@@ -73,7 +75,7 @@ function Summary() {
             </Link>
           </div>
           <span className='lg:text-base font-medium text-marine-blue text-right'>
-            ${CART.plan.price}/{BILLING[CART.billing]}
+            ${state.price}/{BILLING[state.billing]}
           </span>
         </div>
         <ul>
@@ -84,7 +86,7 @@ function Summary() {
             >
               <span className='text-cool-gray'>{addon.title}</span>
               <span className='text-marine-blue'>
-                +${addon.price}/{BILLING[CART.billing]}
+                +${addon.price}/{BILLING[state.billing]}
               </span>
             </li>
           ))}
@@ -92,10 +94,10 @@ function Summary() {
       </div>
       <div className='px-4 lg:px-6 flex justify-between items-center'>
         <span className='text-sm text-cool-gray'>
-          Total (per {CART.billing.slice(0, -2)})
+          Total (per {state.billing.slice(0, -2)})
         </span>
         <span className='lg:text-lg font-medium text-purplish-blue'>
-          +${total}/{BILLING[CART.billing]}
+          +${total}/{BILLING[state.billing]}
         </span>
       </div>
       <Footer next='/thank-you' confirm back />
