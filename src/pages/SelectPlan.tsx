@@ -7,10 +7,20 @@ import Switch from '../components/Switch';
 import Footer from '../layout/Footer';
 import PLANS from '../assets/plans';
 import { usePlan } from '../context/plan';
+import { useAddon } from '../context';
 
 function SelectPlan() {
   const { state, changePlan, changeBilling } = usePlan();
+  const { state: addons, updatePrice } = useAddon();
   const { billing, ...plan } = state;
+
+  const handleToggleBilling = () => {
+    if (addons.length !== 0) {
+      const newBilling = billing === 'monthly' ? 'yearly' : 'monthly';
+      updatePrice(newBilling);
+    }
+    changeBilling();
+  };
 
   return (
     <div className='grid gap-5 lg:gap-9'>
@@ -44,7 +54,7 @@ function SelectPlan() {
         labelOn='Yearly'
         switchId='billing'
         isOn={billing === 'yearly'}
-        onChange={changeBilling}
+        onChange={handleToggleBilling}
       />
       <Footer next='/add-ons' back />
     </div>

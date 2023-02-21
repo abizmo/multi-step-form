@@ -1,10 +1,15 @@
 import React, { PropsWithChildren } from 'react';
+import { AddonPropvider, useAddon } from './addOn';
 import { PlanProvider, usePlan } from './plan';
 
 function AppStateProvider({ children }: PropsWithChildren): JSX.Element {
-  return <PlanProvider>{children}</PlanProvider>;
+  return (
+    <PlanProvider>
+      <AddonPropvider>{children}</AddonPropvider>
+    </PlanProvider>
+  );
 }
 
 export default AppStateProvider;
 
-export { usePlan };
+export { useAddon, usePlan };
