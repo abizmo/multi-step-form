@@ -1,20 +1,4 @@
-import { Billing } from '../components/Plan';
-
-type Price = {
-  [key in Billing]: number;
-};
-
-type Discount = {
-  [key in Billing]?: string;
-};
-
-export type PlanType = {
-  id: string;
-  title: string;
-  price: Price;
-  srcIcon: string;
-  discount: Discount;
-};
+import { PlanType } from '../types/plan';
 
 const PLANS: PlanType[] = [
   {

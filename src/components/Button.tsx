@@ -1,5 +1,3 @@
-/* eslint-disable react/button-has-type */
-/* eslint-disable react/jsx-props-no-spreading */
 import { cva, type VariantProps } from 'class-variance-authority';
 import React, { ComponentProps } from 'react';
 
@@ -29,6 +27,7 @@ function Button({
   ...props
 }: Props): JSX.Element {
   return (
+    // eslint-disable-next-line react/button-has-type
     <button className={buttonStyles({ variant })} type={type} {...props}>
       {children}
     </button>

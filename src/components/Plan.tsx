@@ -1,21 +1,16 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React, { ComponentProps } from 'react';
+import BILLING from '../assets/billing';
+import { Billing } from '../types/billing';
 
-export type Billing = 'monthly' | 'yearly';
 type InputProps = ComponentProps<'input'>;
 
-interface Props extends Omit<InputProps, 'type' | 'className'> {
+export interface PlanProps extends Omit<InputProps, 'type' | 'className'> {
   srcIcon: string;
   title: string;
   price?: number;
   billing?: Billing;
   discount?: string | undefined;
 }
-
-const BILLING = {
-  monthly: 'mo',
-  yearly: 'yr',
-};
 
 function Plan({
   id,
@@ -26,7 +21,7 @@ function Plan({
   billing = 'monthly',
   discount = undefined,
   ...props
-}: Props) {
+}: PlanProps) {
   return (
     <label
       htmlFor={id}

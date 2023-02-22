@@ -1,16 +1,16 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 
-export type Step = {
+type Step = {
   path: string;
   name: string;
 };
 
-interface Props {
+export interface StepProps {
   steps: Step[];
 }
 
-function Steps({ steps }: Props) {
+function Steps({ steps }: StepProps) {
   const location = useLocation();
 
   return (

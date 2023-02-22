@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface Props {
+export interface SwitchProps {
   labelOff: string;
   labelOn: string;
   switchId: string;
@@ -14,7 +14,7 @@ function Switch({
   switchId,
   isOn,
   onChange,
-}: Props): JSX.Element {
+}: SwitchProps): JSX.Element {
   return (
     <div className='bg-alabaster flex gap-6 justify-center py-4 rounded-lg text-sm font-medium text-cool-gray'>
       <span className={isOn ? '' : 'text-marine-blue'}>{labelOff}</span>
