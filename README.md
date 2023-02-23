@@ -29,12 +29,12 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![](./screenshot.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [https://github.com/abizmo/multi-step-form](https://github.com/abizmo/multi-step-form)
+- Live Site URL: [https://multi-step-form-abizmo.vercel.app/](https://multi-step-form-abizmo.vercel.app/)
 
 ## My process
 
