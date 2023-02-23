@@ -1,18 +1,26 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import Paragraph from '../components/Paragraph';
-import Plan, { type Billing } from '../components/Plan';
+import Plan from '../components/Plan';
 import Title from '../components/Title';
 import Switch from '../components/Switch';
 import Footer from '../layout/Footer';
 import PLANS from '../assets/plans';
+import { usePlan } from '../context/plan';
+import { useAddon } from '../context';
 
 function SelectPlan() {
-  const [billing, setBilling] = useState<Billing>('monthly');
-  const [plan, setPlan] = useState('');
+  const { state, changePlan, changeBilling } = usePlan();
+  const { state: addons, updatePrice } = useAddon();
+  const { billing, ...plan } = state;
 
-  const handleSwitch = () =>
-    setBilling((prev) => (prev === 'monthly' ? 'yearly' : 'monthly'));
+  const handleToggleBilling = () => {
+    if (addons.length !== 0) {
+      const newBilling = billing === 'monthly' ? 'yearly' : 'monthly';
+      updatePrice(newBilling);
+    }
+    changeBilling();
+  };
 
   return (
     <div className='grid gap-5 lg:gap-9'>
@@ -35,8 +43,8 @@ function SelectPlan() {
               discount={discount[billing]}
               name='plan'
               value={id}
-              checked={plan === id}
-              onChange={() => setPlan(id)}
+              checked={plan.id === id}
+              onChange={() => changePlan({ id, title, price: price[billing] })}
             />
           </li>
         ))}
@@ -46,7 +54,7 @@ function SelectPlan() {
         labelOn='Yearly'
         switchId='billing'
         isOn={billing === 'yearly'}
-        onChange={handleSwitch}
+        onChange={handleToggleBilling}
       />
       <Footer next='/add-ons' back />
     </div>

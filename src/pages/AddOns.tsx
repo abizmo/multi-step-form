@@ -1,21 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ADDONS from '../assets/addons';
 import AddOn from '../components/AddOn';
 
 import Paragraph from '../components/Paragraph';
 import Title from '../components/Title';
+import { useAddon, usePlan } from '../context';
+import { AddonStateType } from '../context/addOn';
 import Footer from '../layout/Footer';
 
 function AddOns() {
-  const [addOns, setAddOns] = useState<string[]>([]);
-  // TODO: come from App state
-  const billing = 'monthly';
+  const { state: addOns, addAddon, removeAddon } = useAddon();
+  const {
+    state: { billing },
+  } = usePlan();
 
-  const isAddOnSelected = (addOn: string) => addOns.includes(addOn);
-  const toggleAddOn = (addOn: string) =>
-    isAddOnSelected(addOn)
-      ? setAddOns(addOns.filter((a) => a !== addOn))
-      : setAddOns([...addOns, addOn]);
+  const isAddOnSelected = (addonId: string) =>
+    addOns.some((addon) => addon.id === addonId);
+
+  const toggleAddOn = (addon: AddonStateType) =>
+    isAddOnSelected(addon.id) ? removeAddon(addon.id) : addAddon(addon);
 
   return (
     <div className='grid gap-5 lg:gap-9'>
@@ -35,7 +38,7 @@ function AddOns() {
               description={description}
               price={price[billing]}
               checked={isAddOnSelected(id)}
-              onChange={() => toggleAddOn(id)}
+              onChange={() => toggleAddOn({ id, title, price: price[billing] })}
               billing={billing}
             />
           </li>

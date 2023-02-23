@@ -1,13 +1,12 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React, { ComponentProps, useState } from 'react';
 
 type InputProps = ComponentProps<'input'>;
 
-export interface Props extends InputProps {
+export interface FormGroupProps extends InputProps {
   errorMessage: string;
   label: string;
 }
-function FormGroup({ id, label, errorMessage, ...props }: Props) {
+function FormGroup({ id, label, errorMessage, ...props }: FormGroupProps) {
   const [isInvalid, setIsInvalid] = useState(false);
   const handleBlur = (evt: React.FormEvent<HTMLInputElement>) => {
     if (evt.currentTarget.value === '') setIsInvalid(true);

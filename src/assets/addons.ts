@@ -1,17 +1,6 @@
-import { Billing } from '../components/Plan';
+import { AddonType } from '../types/addon';
 
-type Price = {
-  [key in Billing]: number;
-};
-
-export type AddOnType = {
-  id: string;
-  title: string;
-  description: string;
-  price: Price;
-};
-
-const ADDONS: AddOnType[] = [
+const ADDONS: AddonType[] = [
   {
     id: 'online-service',
     title: 'Online service',

@@ -1,20 +1,14 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React, { ComponentProps } from 'react';
-
-type Billing = 'monthly' | 'yearly';
+import BILLING from '../assets/billing';
+import { Billing } from '../types/billing';
 
 type InputProps = ComponentProps<'input'>;
-interface Props extends Omit<InputProps, 'type' | 'className'> {
+export interface AddOnProps extends Omit<InputProps, 'type' | 'className'> {
   title: string;
   description: string;
   price?: number;
   billing?: Billing;
 }
-
-const BILLING = {
-  monthly: 'mo',
-  yearly: 'yr',
-};
 
 function AddOn({
   id,
@@ -24,7 +18,7 @@ function AddOn({
   price = 0,
   billing = 'monthly',
   ...props
-}: Props) {
+}: AddOnProps) {
   return (
     <label
       htmlFor={id}
