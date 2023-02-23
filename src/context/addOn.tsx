@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-import { Billing } from '../components/Plan';
+import { Billing } from '../types/billing';
 
 enum ActionTypes {
   ADD_ADDON = 'ADD_ADDON',

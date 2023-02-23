@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 
-type Step = {
+export type Step = {
   path: string;
   name: string;
 };

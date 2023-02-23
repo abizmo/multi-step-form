@@ -1,12 +1,12 @@
 import React from 'react';
 import { type RouteObject } from 'react-router-dom';
-import { Step } from '../components/Steps';
 
 import AddOns from './AddOns';
 import PersonalInfo from './PersonalInfo';
 import SelectPlan from './SelectPlan';
 import Summary from './Summary';
 import ThankYou from './ThankYou';
+import { Step } from '../components/Steps';
 
 export type Route = RouteObject & Step;
 
